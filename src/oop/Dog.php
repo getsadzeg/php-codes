@@ -9,6 +9,9 @@ class Dog {
     	$this->age = $age;
     	$this->colour = $colour;
     }
+    function __destruct() {
+    	echo "destroying. just demonstrated destructor \n";
+    }
     
 	function setBreed($breed) {
 		$this->breed = $breed;
@@ -32,4 +35,6 @@ class Dog {
 }
 $max = new Dog("Labrador Retriever", 2, "White");
 echo $max->getBreed() . "\n";
+$max->__destruct();
+$max->getColour(); //__destruct called.
 ?>
