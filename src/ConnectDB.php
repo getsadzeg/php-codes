@@ -38,12 +38,12 @@ class ConnectDB {
 	function close() {
 		mysql_close(getConn());
 	}
-	function create_db() {
-		$statement = "CREATE Database test_db";
+	function runStatement($statement) {
 		$runquery = mysql_query($statement, getConn());
-		if(! $runquery) die('something blew up while creating database: ' . mysql_error());
-		echo "test_db created successfully";
+		if(! $runquery) die('something blew up while running statement: ' . mysql_error());
+		echo "statement runned successfully";
 	}
+
 
 }
 ?>
