@@ -27,19 +27,23 @@ class ConnectDB {
 	function getPassword() {
 		return $this->password;
 	}
+	function setConn($conn) {
+		$this->conn = $conn;
+	}
 	function getConn() {
 		return $this->conn;
 	}
 	function open() {
-		$conn = mysql_connect(getHost(), getUser(), getPassword());
+		$conn = mysql_connect($this->getHost(), $this->getUser(), $this->getPassword());
 		if(! $conn) die('connection failed' . mysql.error());
+		$this->setConn($conn);
 		echo "connection success \n";
 	}
 	function close() {
-		mysql_close(getConn());
+		mysql_close($this->getConn());
 	}
 	function runStatement($statement) {
-		$runquery = mysql_query($statement, getConn());
+		$runquery = mysql_query($statement, $this->getConn());
 		if(! $runquery) die('something blew up while running statement: ' . mysql_error());
 		echo "statement runned successfully";
 	}
