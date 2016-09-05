@@ -48,6 +48,11 @@ class ConnectDB {
 		echo "statement runned successfully";
 	}
 
-
 }
+
+$dbexample = new ConnectDB("localhost:3036", "user", "user1234");
+$dbexample->open();
+$dbexample->runStatement("CREATE Database test_db");
+$dbexample->close();
+
 ?>
