@@ -30,12 +30,12 @@ class ConnectDB {
 	function getConn() {
 		return $this->conn;
 	}
-	function openConnection() {
+	function open() {
 		$conn = mysql_connect(getHost(), getUser(), getPassword());
 		if(! $conn) die('connection failed' . mysql.error());
 		echo "connection success \n";
 	}
-	function closeConnection() {
+	function close() {
 		mysql_close(getConn());
 	}
 	function create_db() {
