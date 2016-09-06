@@ -48,7 +48,7 @@ class ConnectDB {
 	function runStatement($statement) {
 		$runquery = mysql_query($statement, $this->getConn());
 		if(! $runquery) die('something blew up while running statement: ' . mysql_error());
-		echo "statement runned successfully";
+		echo "statement runned successfully \n";
 	}
 
 }
