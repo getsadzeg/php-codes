@@ -58,6 +58,9 @@ $dbexample->open();
 #$dbexample->runStatement("CREATE Database test_db");
 $dbexample->select_db("test_db");
 #$dbexample->runStatement("CREATE TABLE person (name VARCHAR(30) NOT NULL, surname VARCHAR(30) NOT NULL)");
+#$dbexample->runStatement('INSERT INTO person '.
+#      '(name, surname) '.
+#     'VALUES ( "Guri", "Getsadze" )');
 $dbexample->runStatement("UPDATE person SET name = 'John', surname='Doe'");
 
 $dbexample->close();
