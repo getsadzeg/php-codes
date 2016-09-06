@@ -42,6 +42,9 @@ class ConnectDB {
 	function close() {
 		mysql_close($this->getConn());
 	}
+	function select_db($dbname) {
+		mysql_select_db($dbname);
+	}
 	function runStatement($statement) {
 		$runquery = mysql_query($statement, $this->getConn());
 		if(! $runquery) die('something blew up while running statement: ' . mysql_error());
@@ -52,7 +55,11 @@ class ConnectDB {
 
 $dbexample = new ConnectDB("localhost:3036", "user", "user1234");
 $dbexample->open();
-$dbexample->runStatement("CREATE Database test_db");
+#$dbexample->runStatement("CREATE Database test_db");
+$dbexample->select_db("test_db");
+#$dbexample->runStatement("CREATE TABLE person (name VARCHAR(30) NOT NULL, surname VARCHAR(30) NOT NULL)");
+$dbexample->runStatement("UPDATE person SET name = 'John', surname='Doe'");
+
 $dbexample->close();
 
 ?>
